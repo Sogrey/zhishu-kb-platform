@@ -1,0 +1,47 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# --- Node ---
+node_modules/
+dist/
+dist-ssr/
+coverage/
+*.local
+
+# --- Env & secrets ---
+.env
+.env.*
+*.pem
+*.key
+
+# --- IDE ---
+.idea/
+.vscode/
+*.swp
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- 模型权重与运行时数据（不入库）---
+models/
+data/
+files/
+logs/
+*.gguf
+*.onnx
+*.pth
+*.safetensors
+offline-bundle.tar
+
+# --- 临时目录 ---
+.temp/
+temp/
+tmp/
