@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知枢企业智能知识库 技术方案 · markmap 目录</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: #f7f8fa; }
+  .toolbar {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    padding: 10px 18px; background: #ffffff; border-bottom: 1px solid #e5e6eb;
+    box-shadow: 0 1px 4px rgba(0,0,0,.05);
+  }
+  .toolbar h1 { font-size: 15px; margin: 0; color: #1d2129; font-weight: 600; }
+  .toolbar .meta { font-size: 12px; color: #86909c; }
+  .toolbar a { font-size: 12px; color: #165dff; text-decoration: none; }
+  .toolbar a:hover { text-decoration: underline; }
+  .markmap-wrap { position: relative; width: 100%; height: calc(100% - 45px); }
+  .markmap { position: absolute; inset: 0; }
+  .markmap > svg { width: 100%; height: 100%; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <h1>知枢企业智能知识库 技术方案 · 目录导图</h1>
+  <span class="meta">开源组件组装 ｜ 2026-10-31</span>
+  <span class="meta">主文档：<a href="./知枢企业智能知识库技术方案.md">知枢企业智能知识库技术方案.md</a> ｜ <a href="../README.md">项目 README</a></span>
+  <span class="meta">提示：点击节点可展开/折叠，滚轮缩放，可拖拽平移</span>
+</div>
+<div class="markmap-wrap">
+<div class="markmap">
+<script type="text/template">
+---
+markmap:
+  maxWidth: 340
+  initialExpandLevel: 2
+  spacingVertical: 8
+  spacingHorizontal: 100
+  colorFreezeLevel: 2
+---
+# 知枢企业智能知识库<br/>技术方案
+
+## §1 概述与原则
+### 定位：企业级 AI 智能知识库
+### 「枢」= 知识治理中枢（核心差异化）
+### 原则六条
+#### 清洁室：不使用第三方闭源产品代码/SDK
+#### 开源优先：AGPL 零引入
+#### 单体优先・数据主权・可解释优先
+#### 许可证合规先于功能
+### 范围：P0 核心 / P1 治理 / P2 可开关
+
+## §2 功能需求规格（FR-01~19）
+### 摄取：上传/路由/流水线
+### 检索：混合+RRF+Rerank+表格注入+Hit Test
+### 问答：SSE 流式+四类引用
+### 治理：有效期/归并/密级审计水印
+### P2 可选：图谱/工作流/协同
+
+## §3 总体架构
+### 分层：接入/应用（FastAPI 单体）/AI 服务/数据
+### 服务拓扑：nginx+api+worker+beat+llm+tei+parse+pg+valkey
+### Monorepo：frontend/server/deploy/docs
+### ADR 八项
+#### 模块化单体（非微服务）
+#### PG 同库：业务+pgvector+zhparser
+#### 密级过滤在检索层 SQL
+#### P2 可开关不进核心链路
+#### 前端 Ant Design Vue
+#### llama-server 优先（并发显式可控）
+#### 解析路由制（Docling/MinerU/PaddleOCR）
+#### 评测与追踪当功能开发
+## §4 技术选型（全开源/公共组件）
+### 前端：Vue3+TS+Vite+AntDesignVue4+Pinia+ECharts
+### 后端：FastAPI+Pydantic2+SQLAlchemy2+Celery+Valkey
+### AI：llama.cpp server + Qwen3-4B/30B-A3B-2507
+### 检索：pgvector+zhparser+TEI（Qwen3-Embedding/Reranker）
+### 解析：Docling(MIT)+MinerU(Apache2+条款)+PaddleOCR
+### 评测：RAGAS+Langfuse
+### P2：LightRAG(MIT)+Vue Flow+TipTap/Yjs(MIT)
+### 许可证合规
+#### AGPL 零引入・GPL 代码零依赖
+#### MinerU 附加条款已核实：内网零义务
+#### Redis→Valkey（BSD）规避许可变化
+#### 新依赖流程：核 LICENSE 入 ADR
+
+## §5 核心模块设计
+### RAG 管线
+#### 摄取：解析路由→分块→嵌入→入库
+#### 查询：双路召回→RRF→Rerank→过滤→组装→SSE
+#### 表格命中注入全表
+### 知识治理（自研核心·「枢」之所在）
+#### 有效期：valid_from/to+定时退休+SQL 恒过滤
+#### 旧稿归并：聚合向量比对 0.92/0.80 两档提示
+#### 密级 L1~L4：检索层过滤「无权不存在」
+#### 审计+动态水印
+#### 图谱审核门槛（P2）：approved 才参与
+### 权限：RBAC+工作区+clearance 三维
+### 评测：RAGAS 夜间回归+Langfuse trace
+### API：SSE 块协议+Key 绑助手+两级限流
+#### 安全要点：Key 不走 URL Query（签名 JWT）
+### 模型接入：本地+云双通道热切换
+
+## §6 数据模型
+### documents/chunks 治理三字段下沉
+### context_snapshot = Hit Test 持久化
+### api_usage_daily 日配额 UPSERT
+### audit_logs 只增不改
+
+## §7 部署方案
+### A 档 6GB：4B Q4 + 2路×8K（POC）
+### B 档无GPU 32GB：全 CPU 主力档
+### C 档 24GB：30B-A3B Q4 多 slot
+### 全离线：镜像 save/load + ModelScope 物料
+### 三开关：--offline / OLLAMA_NO_CLOUD / MINERU_TELEMETRY_DISABLED
+
+## §8 实施计划
+### Phase 0 POC 1周 → M1
+### Phase 1 核心 3~4周 → M2
+### Phase 2 治理+评测 3~4周 → M3
+### Phase 3 开放+P2 按需 → M4
+### 单人 7~9 周 / 双人 5~6 周
+
+## §9 风险
+### R1 解析质量无银弹（验收指标化）
+### R2 6GB 并发天花板（档位迁移）
+### R3 zhparser 编译依赖
+### R4 图谱负收益（默认关+A/B 验证）
+### R9 专利风险（立项前正式检索）
+
+## §10 知识产权与独立开发声明
+### 独立开发路径：清洁室+公开技术资料
+### 五条红线：代码/SDK/界面/文案/命名
+### 法律依据：条例第六条+最高法 2171 号
+### 命名独立：知枢 / zhishu-kb-platform（商标检索先行）
+</script>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.18.11/dist/browser.js"></script>
+</body>
+</html>
