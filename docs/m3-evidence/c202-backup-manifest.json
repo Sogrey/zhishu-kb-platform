@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "backup_dir": "data/backups/20261106-001311-drill",
+  "db_bytes": 970752,
+  "tables_sample": [
+    "audit_logs",
+    "chunks",
+    "conversations",
+    "documents",
+    "eval_cases",
+    "eval_run_items",
+    "eval_runs",
+    "eval_sets",
+    "hit_test_runs",
+    "merge_suggestions",
+    "messages",
+    "qa_traces"
+  ],
+  "documents": 9,
+  "messages": 29,
+  "files_entries": 11,
+  "drilled_at": "2026-11-05T16:13:11.995967+00:00",
+  "kind": "sqlite+files"
+}

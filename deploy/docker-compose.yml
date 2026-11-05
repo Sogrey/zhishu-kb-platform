@@ -1,0 +1,42 @@
+# 知枢 · 基础依赖（单人开发默认只起 pg + valkey）
+# 全栈 AI 服务（llm/tei/parse）后续接入，见注释块
+
+services:
+  pg:
+    image: pgvector/pgvector:pg16
+    container_name: zhishu-pg
+    environment:
+      POSTGRES_USER: zhishu
+      POSTGRES_PASSWORD: zhishu
+      POSTGRES_DB: zhishu
+    ports:
+      - "5432:5432"
+    volumes:
+      - zhishu_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zhishu -d zhishu"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  valkey:
+    image: valkey/valkey:8
+    container_name: zhishu-valkey
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "valkey-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # --- 以下为正式 AI 服务占位，镜像较大，按需启用 ---
+  # llm:
+  #   image: ghcr.io/ggml-org/llama.cpp:server
+  #   ...
+  # tei-embed:
+  #   image: ghcr.io/huggingface/text-embeddings-inference:cpu-1.7
+  #   ...
+
+volumes:
+  zhishu_pg_data:

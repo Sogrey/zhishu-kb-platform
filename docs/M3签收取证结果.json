@@ -1,0 +1,100 @@
+[
+  {
+    "item": "摄取闭环",
+    "pass": true,
+    "detail": "doc#4 ready"
+  },
+  {
+    "item": "密级列表过滤",
+    "pass": true,
+    "detail": "member 不可见 L4"
+  },
+  {
+    "item": "密级检索过滤 / 漏检=0（本用例）",
+    "pass": true,
+    "detail": "member 未命中 L4"
+  },
+  {
+    "item": "FR-06 表格成块",
+    "pass": true,
+    "detail": "doc#6"
+  },
+  {
+    "item": "FR-06 表格全表注入",
+    "pass": true,
+    "detail": "注入含完整职级行"
+  },
+  {
+    "item": "FR-07 Hit Test",
+    "pass": true,
+    "detail": "run#13 injected=8"
+  },
+  {
+    "item": "FR-09 有效期过滤",
+    "pass": true,
+    "detail": "validity=retired"
+  },
+  {
+    "item": "FR-10 归并现行稿过滤",
+    "pass": true,
+    "detail": "older#7 superseded"
+  },
+  {
+    "item": "FR-11 审计可查",
+    "pass": true,
+    "detail": "actions sample=['auth.login', 'document.merge_confirm', 'document.retire_scan', 'document.upload', 'document.validity', 'eval.nightly']"
+  },
+  {
+    "item": "审计导出",
+    "pass": true,
+    "detail": "bytes=16107"
+  },
+  {
+    "item": "治理·退休扫描",
+    "pass": true,
+    "detail": {
+      "ok": true,
+      "retired": 0
+    }
+  },
+  {
+    "item": "FR-13 金标规模",
+    "pass": true,
+    "detail": "50 条"
+  },
+  {
+    "item": "FR-13 评测四指标首报",
+    "pass": true,
+    "detail": "engine=heuristic pass_rate=1.0 run#22"
+  },
+  {
+    "item": "评测看板",
+    "pass": true,
+    "detail": "runs=12"
+  },
+  {
+    "item": "FAQ 样例入库",
+    "pass": true,
+    "detail": "doc#9"
+  },
+  {
+    "item": "FR-14 轻量 Trace",
+    "pass": true,
+    "detail": "smoke verified retrieve/rerank_inject/generate; engine=zhishu-local"
+  },
+  {
+    "item": "C-010 动态水印手测",
+    "pass": true,
+    "detail": "evidence=c010-watermark-l4-chunks.png; CDP label=管理员#1 · 2026-11-05 22:13 · 知枢保密"
+  },
+  {
+    "item": "C-013 治理导航手测",
+    "pass": true,
+    "detail": "evidence=c013-governance-hub.png; /governance Hub OK"
+  },
+  {
+    "item": "业务书面有限启用",
+    "pass": true,
+    "detail": "M3签收演示记录.md §6 已勾选有限启用 2026-11-05"
+  }
+]

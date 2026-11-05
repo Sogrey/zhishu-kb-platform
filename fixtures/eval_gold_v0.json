@@ -1,0 +1,307 @@
+{
+  "name": "知枢金标 v0",
+  "version": "v0",
+  "description": "基于 travel_policy / expense_grades / faq 的金标集 v0（50 条）。上传对应样例文档后跑评测。",
+  "cases": [
+    {
+      "question": "差旅住宿标准是多少？",
+      "expected_answer": "一线城市与其他城市有不同住宿上限，按职级档执行。",
+      "expected_doc_titles": ["expense_grades", "差旅"],
+      "tags": ["住宿", "表格"]
+    },
+    {
+      "question": "P4 一线城市住宿上限？",
+      "expected_answer": "500 元/晚",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["住宿", "表格"]
+    },
+    {
+      "question": "P7 餐补多少？",
+      "expected_answer": "120",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["餐补", "表格"]
+    },
+    {
+      "question": "总监住宿一线城市上限？",
+      "expected_answer": "800 元/晚",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["住宿", "表格"]
+    },
+    {
+      "question": "高铁可以报销几等座？",
+      "expected_answer": "二等座可报销；一等座需审批或按职级。",
+      "expected_doc_titles": ["travel_policy", "expense_grades", "差旅"],
+      "tags": ["交通"]
+    },
+    {
+      "question": "飞机公务舱怎么报？",
+      "expected_answer": "公务舱需审批。",
+      "expected_doc_titles": ["travel_policy", "expense_grades", "差旅"],
+      "tags": ["交通"]
+    },
+    {
+      "question": "出差餐补每天多少？",
+      "expected_answer": "制度样例中餐补约 100 元/天，职级表另有分档。",
+      "expected_doc_titles": ["travel_policy", "expense_grades", "差旅"],
+      "tags": ["餐补"]
+    },
+    {
+      "question": "招待费和餐补能一起报吗？",
+      "expected_answer": "不得重复报销。",
+      "expected_doc_titles": ["travel_policy", "expense_grades", "差旅"],
+      "tags": ["餐补"]
+    },
+    {
+      "question": "报销时限是几天？",
+      "expected_answer": "出差结束后 15 个工作日内。",
+      "expected_doc_titles": ["travel_policy", "差旅"],
+      "tags": ["时限"]
+    },
+    {
+      "question": "一线城市住宿上限多少？",
+      "expected_answer": "制度样例约 500 元/晚；费用表按职级分档。",
+      "expected_doc_titles": ["travel_policy", "expense_grades", "差旅"],
+      "tags": ["住宿"]
+    },
+    {
+      "question": "其他城市住宿上限？",
+      "expected_answer": "制度样例约 350 元/晚；费用表按职级分档。",
+      "expected_doc_titles": ["travel_policy", "expense_grades", "差旅"],
+      "tags": ["住宿"]
+    },
+    {
+      "question": "差旅制度适用于谁？",
+      "expected_answer": "公司全体全职员工国内差旅。",
+      "expected_doc_titles": ["travel_policy", "差旅"],
+      "tags": ["范围"]
+    },
+    {
+      "question": "P1 住宿其他城市上限？",
+      "expected_answer": "280 元/晚",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["住宿", "表格"]
+    },
+    {
+      "question": "知枢是什么？",
+      "expected_answer": "以知识治理中枢为核心的企业智能知识库。",
+      "expected_doc_titles": ["faq", "FAQ"],
+      "tags": ["产品"]
+    },
+    {
+      "question": "密级如何生效？",
+      "expected_answer": "密级在检索层过滤，无权用户对文档不存在。",
+      "expected_doc_titles": ["faq", "FAQ"],
+      "tags": ["密级"]
+    },
+    {
+      "question": "经济舱能否报销？",
+      "expected_answer": "经济舱可报销。",
+      "expected_doc_titles": ["travel_policy", "expense_grades", "差旅"],
+      "tags": ["交通"]
+    },
+    {
+      "question": "一等座需要审批吗？",
+      "expected_answer": "需事前书面审批或按职级规定。",
+      "expected_doc_titles": ["travel_policy", "expense_grades", "差旅"],
+      "tags": ["交通"]
+    },
+    {
+      "question": "费用标准按什么分档？",
+      "expected_answer": "按职级档位（P1-P3、P4-P6、P7+、总监及以上）。",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["表格"]
+    },
+    {
+      "question": "哪些算一线城市？",
+      "expected_answer": "北上广深及公司认定清单。",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["住宿"]
+    },
+    {
+      "question": "P4-P6 餐补是多少？",
+      "expected_answer": "100 元/天",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["餐补", "表格"]
+    },
+    {
+      "question": "P1-P3 交通标准是什么？",
+      "expected_answer": "高铁二等座 / 经济舱",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["交通", "表格"]
+    },
+    {
+      "question": "P7+ 一线住宿上限？",
+      "expected_answer": "650 元/晚",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["住宿", "表格"]
+    },
+    {
+      "question": "总监餐补多少？",
+      "expected_answer": "150 元/天",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["餐补", "表格"]
+    },
+    {
+      "question": "超出标准怎么处理？",
+      "expected_answer": "超出需事前审批。",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["审批"]
+    },
+    {
+      "question": "住宿标准按城市如何区分？",
+      "expected_answer": "一线与其他城市分别设上限。",
+      "expected_doc_titles": ["travel_policy", "expense_grades", "差旅"],
+      "tags": ["住宿"]
+    },
+    {
+      "question": "差旅报销需要在多久内提交？",
+      "expected_answer": "15 个工作日内。",
+      "expected_doc_titles": ["travel_policy", "差旅"],
+      "tags": ["时限"]
+    },
+    {
+      "question": "P4-P6 其他城市住宿上限？",
+      "expected_answer": "350 元/晚",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["住宿", "表格"]
+    },
+    {
+      "question": "无权用户能搜到机密文档吗？",
+      "expected_answer": "不能；密级在检索层过滤，无权即不存在。",
+      "expected_doc_titles": ["faq", "FAQ"],
+      "tags": ["密级"]
+    },
+    {
+      "question": "知枢和普通 RAG 问答有何不同？",
+      "expected_answer": "强调知识治理中枢：有效期、归并、密级、审计。",
+      "expected_doc_titles": ["faq", "FAQ"],
+      "tags": ["产品"]
+    },
+    {
+      "question": "飞机经济舱是否可报？",
+      "expected_answer": "经济舱可报销。",
+      "expected_doc_titles": ["travel_policy", "expense_grades", "差旅"],
+      "tags": ["交通"]
+    },
+    {
+      "question": "P1-P3 一线住宿上限？",
+      "expected_answer": "400 元/晚",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["住宿", "表格"]
+    },
+    {
+      "question": "P1-P3 餐补是多少？",
+      "expected_answer": "80 元/天",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["餐补", "表格"]
+    },
+    {
+      "question": "P7+ 其他城市住宿上限？",
+      "expected_answer": "450 元/晚",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["住宿", "表格"]
+    },
+    {
+      "question": "总监其他城市住宿上限？",
+      "expected_answer": "550 元/晚",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["住宿", "表格"]
+    },
+    {
+      "question": "P7+ 交通可以怎么报？",
+      "expected_answer": "高铁一等座可报 / 经济舱",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["交通", "表格"]
+    },
+    {
+      "question": "费用表有几个职级档？",
+      "expected_answer": "四档：P1-P3、P4-P6、P7+、总监及以上。",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["表格"]
+    },
+    {
+      "question": "一线城市包括哪些？",
+      "expected_answer": "北上广深及公司认定清单。",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["住宿"]
+    },
+    {
+      "question": "差旅制度适用国内还是海外？",
+      "expected_answer": "国内差旅费用报销。",
+      "expected_doc_titles": ["travel_policy", "差旅"],
+      "tags": ["范围"]
+    },
+    {
+      "question": "高铁一等座什么情况下可报？",
+      "expected_answer": "需事前书面审批，或按职级表对 P7+/总监规则执行。",
+      "expected_doc_titles": ["travel_policy", "expense_grades", "差旅"],
+      "tags": ["交通"]
+    },
+    {
+      "question": "逾期报销怎么办？",
+      "expected_answer": "逾期需说明原因。",
+      "expected_doc_titles": ["travel_policy", "差旅"],
+      "tags": ["时限"]
+    },
+    {
+      "question": "制度样例一线住宿上限是多少？",
+      "expected_answer": "500 元/晚（差旅制度样例正文）。",
+      "expected_doc_titles": ["travel_policy", "差旅"],
+      "tags": ["住宿"]
+    },
+    {
+      "question": "制度样例其他城市住宿上限？",
+      "expected_answer": "350 元/晚。",
+      "expected_doc_titles": ["travel_policy", "差旅"],
+      "tags": ["住宿"]
+    },
+    {
+      "question": "P4-P6 一线住宿是多少？",
+      "expected_answer": "500 元/晚",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["住宿", "表格"]
+    },
+    {
+      "question": "检索层密级过滤的含义？",
+      "expected_answer": "无权用户对文档「不存在」，不会命中。",
+      "expected_doc_titles": ["faq", "FAQ"],
+      "tags": ["密级"]
+    },
+    {
+      "question": "知枢的产品定位是什么？",
+      "expected_answer": "企业智能知识库，以知识治理中枢为核心差异化。",
+      "expected_doc_titles": ["faq", "FAQ"],
+      "tags": ["产品"]
+    },
+    {
+      "question": "餐补能否与招待费重复报销？",
+      "expected_answer": "不得重复报销。",
+      "expected_doc_titles": ["travel_policy", "expense_grades", "差旅"],
+      "tags": ["餐补"]
+    },
+    {
+      "question": "P7+ 餐补是多少？",
+      "expected_answer": "120 元/天",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["餐补", "表格"]
+    },
+    {
+      "question": "总监交通公务舱规则？",
+      "expected_answer": "公务舱需审批。",
+      "expected_doc_titles": ["expense_grades", "travel_policy", "差旅"],
+      "tags": ["交通"]
+    },
+    {
+      "question": "费用标准表验收目的是什么？",
+      "expected_answer": "验收表格全表注入：命中单元格也应注入整张表。",
+      "expected_doc_titles": ["expense_grades"],
+      "tags": ["表格"]
+    },
+    {
+      "question": "全职员工能否适用差旅制度？",
+      "expected_answer": "可以，适用于全体全职员工国内差旅。",
+      "expected_doc_titles": ["travel_policy", "差旅"],
+      "tags": ["范围"]
+    }
+  ]
+}
