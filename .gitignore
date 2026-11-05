@@ -31,8 +31,8 @@ coverage/
 .DS_Store
 Thumbs.db
 
-# --- 模型权重与运行时数据（不入库）---
-models/
+# --- 模型权重与运行时数据（不入库；仅根目录 models，勿误伤 server/app/models）---
+/models/
 data/
 files/
 logs/
